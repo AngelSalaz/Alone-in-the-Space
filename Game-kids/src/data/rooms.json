@@ -1,0 +1,314 @@
+[
+  {
+    "id": "cabina_estacion",
+    "name": "Cabina de vuelo",
+    "background": "cabina_estacion",
+    "onEnter": [{ "type": "fact", "id": "intro" }],
+    "hotspots": [
+      {
+        "id": "placa",
+        "label": "Placa de la estación",
+        "rect": { "x": 70, "y": 585, "w": 175, "h": 46 },
+        "actions": [
+          { "type": "say", "text": "Dice ESTACIÓN 4. ¡Este es mi puesto en la nave!" },
+          { "type": "setFlag", "flag": "dig_estacion" }
+        ]
+      },
+      {
+        "id": "ventanas",
+        "label": "Ventanas",
+        "rect": { "x": 90, "y": 75, "w": 1020, "h": 215 },
+        "actions": [
+          { "type": "say", "text": "¡Cuántas ventanas! Las cuento una por una: son seis." },
+          { "type": "setFlag", "flag": "dig_ventanas" },
+          { "type": "fact", "id": "ventanas" }
+        ]
+      },
+      {
+        "id": "sol",
+        "label": "El Sol",
+        "rect": { "x": 630, "y": 112, "w": 76, "h": 76 },
+        "actions": [
+          { "type": "say", "text": "Ese puntito brillante es el Sol. ¡Se ve muy pequeño desde aquí!" },
+          { "type": "fact", "id": "distancia" }
+        ]
+      },
+      {
+        "id": "asiento",
+        "label": "Asiento del comandante",
+        "rect": { "x": 398, "y": 380, "w": 144, "h": 270 },
+        "actions": [
+          { "type": "say", "text": "El asiento del comandante. Desde aquí se dirige la nave." },
+          { "type": "fact", "id": "estaciones" }
+        ]
+      },
+      {
+        "id": "bitacora",
+        "label": "Bitácora",
+        "rect": { "x": 880, "y": 570, "w": 205, "h": 65 },
+        "actions": [
+          { "type": "say", "text": "El diario de la nave dice: «Volvemos a la Tierra. ¡Hay que arreglar la energía!»" }
+        ]
+      },
+      {
+        "id": "paneles",
+        "label": "Paneles",
+        "rect": { "x": 50, "y": 345, "w": 1100, "h": 62 },
+        "actions": [
+          { "type": "say", "text": "Todos los paneles están apagados. ¡La nave necesita energía!" }
+        ]
+      },
+      {
+        "id": "escalera",
+        "label": "Bajar al entrepuente",
+        "rect": { "x": 1085, "y": 440, "w": 95, "h": 190 },
+        "actions": [
+          { "type": "say", "text": "Bajo al entrepuente a buscar herramientas." },
+          { "type": "goto", "view": "entrepuente_lockers" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "entrepuente_lockers",
+    "name": "Entrepuente",
+    "background": "entrepuente_lockers",
+    "hotspots": [
+      {
+        "id": "lockers",
+        "label": "Casilleros",
+        "rect": { "x": 440, "y": 110, "w": 420, "h": 314 },
+        "showIf": ["!flag:locker_abierto"],
+        "actions": [{ "type": "say", "text": "Casilleros para guardar cosas. El 2B tiene una cerradura con tres dibujos." }]
+      },
+      {
+        "id": "lockers_abierto",
+        "label": "Casilleros",
+        "rect": { "x": 440, "y": 110, "w": 420, "h": 314 },
+        "showIf": ["flag:locker_abierto"],
+        "actions": [{ "type": "say", "text": "El casillero 2B ya está abierto y vacío." }]
+      },
+      {
+        "id": "cerradura",
+        "label": "Cerradura del casillero 2B",
+        "rect": { "x": 760, "y": 470, "w": 360, "h": 140 },
+        "showIf": ["!flag:locker_abierto"],
+        "actions": [{ "type": "puzzle", "id": "locker2B" }]
+      },
+      {
+        "id": "literas",
+        "label": "Camas",
+        "rect": { "x": 40, "y": 130, "w": 356, "h": 300 },
+        "actions": [
+          { "type": "say", "text": "Hay sacos de dormir pegados a la pared. ¡Cuento cinco camas!" },
+          { "type": "setFlag", "flag": "dig_literas" },
+          { "type": "fact", "id": "camas" }
+        ]
+      },
+      {
+        "id": "abertura",
+        "label": "Subir a la cabina",
+        "rect": { "x": 60, "y": 20, "w": 150, "h": 70 },
+        "actions": [{ "type": "goto", "view": "cabina_estacion" }]
+      },
+      {
+        "id": "panel_pared_cerrado",
+        "label": "Panel de la pared",
+        "rect": { "x": 60, "y": 450, "w": 260, "h": 150 },
+        "showIf": ["!flag:cable_obtenido"],
+        "actions": [{ "type": "say", "text": "Un panel con tornillos de forma hexagonal. Necesito la herramienta correcta." }],
+        "use": [
+          {
+            "item": "llave_hex",
+            "actions": [
+              { "type": "say", "text": "¡Los tornillos giran! Dentro hay un cable corto." },
+              { "type": "give", "item": "cable" },
+              { "type": "setFlag", "flag": "cable_obtenido" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "panel_pared_abierto",
+        "label": "Panel de la pared",
+        "rect": { "x": 60, "y": 450, "w": 260, "h": 150 },
+        "showIf": ["flag:cable_obtenido"],
+        "actions": [{ "type": "say", "text": "El panel ya está abierto y vacío." }]
+      },
+      {
+        "id": "puerta_bahia",
+        "label": "Ir a la bahía de aviónica",
+        "rect": { "x": 900, "y": 362, "w": 220, "h": 96 },
+        "actions": [{ "type": "goto", "view": "bahia_avionica" }]
+      },
+      {
+        "id": "panel_piso_cerrado",
+        "label": "Panel del piso",
+        "rect": { "x": 340, "y": 520, "w": 360, "h": 100 },
+        "showIf": ["!flag:piso_abierto"],
+        "actions": [{ "type": "say", "text": "Un panel en el piso con cuatro tornillos. Quizás la llave hexagonal también sirve aquí." }],
+        "use": [
+          {
+            "item": "llave_hex",
+            "actions": [
+              { "type": "say", "text": "¡Se abre! Debajo hay una escalerita hacia las celdas de combustible." },
+              { "type": "setFlag", "flag": "piso_abierto" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "panel_piso_abierto",
+        "label": "Bajar a las celdas de combustible",
+        "rect": { "x": 340, "y": 520, "w": 360, "h": 100 },
+        "showIf": ["flag:piso_abierto"],
+        "actions": [{ "type": "goto", "view": "celdas_reactantes" }]
+      },
+      {
+        "id": "escotilla",
+        "label": "Escotilla lateral",
+        "rect": { "x": 942, "y": 172, "w": 176, "h": 176 },
+        "actions": [{ "type": "say", "text": "La escotilla lateral está bien cerrada. Una lucecita naranja nos avisa que todo está en orden." }]
+      }
+    ]
+  },
+  {
+    "id": "bahia_avionica",
+    "name": "Bahía de aviónica",
+    "background": "bahia_avionica",
+    "hotspots": [
+      {
+        "id": "caja_oscura",
+        "label": "Caja de fusibles",
+        "rect": { "x": 760, "y": 110, "w": 340, "h": 270 },
+        "showIf": ["!item:linterna", "!flag:fusible_obtenido"],
+        "actions": [{ "type": "say", "text": "Está muy oscuro dentro de la caja. ¡Necesito una luz!" }]
+      },
+      {
+        "id": "caja_con_luz",
+        "label": "Caja de fusibles",
+        "rect": { "x": 760, "y": 110, "w": 340, "h": 270 },
+        "showIf": ["item:linterna", "!flag:fusible_obtenido"],
+        "actions": [
+          { "type": "say", "text": "Con la linterna veo un fusible en buen estado. ¡Lo tomo!" },
+          { "type": "give", "item": "fusible" },
+          { "type": "setFlag", "flag": "fusible_obtenido" }
+        ]
+      },
+      {
+        "id": "caja_vacia",
+        "label": "Caja de fusibles",
+        "rect": { "x": 760, "y": 110, "w": 340, "h": 270 },
+        "showIf": ["flag:fusible_obtenido"],
+        "actions": [{ "type": "say", "text": "La caja de fusibles. Ya tomé el que servía." }]
+      },
+      {
+        "id": "panel_sin_fusible",
+        "label": "Panel de interruptores",
+        "rect": { "x": 80, "y": 90, "w": 560, "h": 470 },
+        "showIf": ["!flag:fusible_instalado"],
+        "actions": [{ "type": "say", "text": "El panel de interruptores no tiene energía. Le falta un fusible que cierre el circuito." }],
+        "use": [
+          {
+            "item": "fusible_puente",
+            "actions": [
+              { "type": "take", "item": "fusible_puente" },
+              { "type": "setFlag", "flag": "fusible_instalado" },
+              { "type": "say", "text": "¡Clic! El panel se encendió. Ahora hay que ordenar los interruptores." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "panel_interruptores",
+        "label": "Panel de interruptores",
+        "rect": { "x": 80, "y": 90, "w": 560, "h": 470 },
+        "showIf": ["flag:fusible_instalado", "!flag:interruptores_listos"],
+        "actions": [{ "type": "puzzle", "id": "interruptores1" }]
+      },
+      {
+        "id": "panel_listo",
+        "label": "Panel de interruptores",
+        "rect": { "x": 80, "y": 90, "w": 560, "h": 470 },
+        "showIf": ["flag:interruptores_listos"],
+        "actions": [{ "type": "say", "text": "Los interruptores están bien. ¡La electricidad ya puede viajar!" }]
+      },
+      {
+        "id": "salida",
+        "label": "Volver al entrepuente",
+        "rect": { "x": 900, "y": 430, "w": 220, "h": 210 },
+        "actions": [{ "type": "goto", "view": "entrepuente_lockers" }]
+      }
+    ]
+  },
+  {
+    "id": "celdas_reactantes",
+    "name": "Celdas de combustible",
+    "background": "celdas_reactantes",
+    "hotspots": [
+      {
+        "id": "salida",
+        "label": "Subir al entrepuente",
+        "rect": { "x": 520, "y": 20, "w": 160, "h": 90 },
+        "actions": [{ "type": "goto", "view": "entrepuente_lockers" }]
+      },
+      {
+        "id": "tanque",
+        "label": "Tanque de hidrógeno",
+        "rect": { "x": 60, "y": 160, "w": 230, "h": 380 },
+        "actions": [{ "type": "say", "text": "Un tanque grande con hidrógeno, un gas que sirve de combustible." }]
+      },
+      {
+        "id": "tuberia_agrietada",
+        "label": "Tubería agrietada",
+        "rect": { "x": 295, "y": 330, "w": 75, "h": 90 },
+        "showIf": ["!flag:tuberia_reparada"],
+        "actions": [{ "type": "say", "text": "¡Esta tubería tiene una grieta y se escapa el gas! Necesito algo para taparla." }],
+        "use": [
+          {
+            "item": "cinta",
+            "actions": [
+              { "type": "take", "item": "cinta" },
+              { "type": "say", "text": "Tapo la grieta con la cinta. ¡Quedó bien sellada!" },
+              { "type": "setFlag", "flag": "tuberia_reparada" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tuberia_ok",
+        "label": "Tubería reparada",
+        "rect": { "x": 295, "y": 330, "w": 75, "h": 90 },
+        "showIf": ["flag:tuberia_reparada"],
+        "actions": [{ "type": "say", "text": "La tubería ya no pierde gas." }]
+      },
+      {
+        "id": "tablero_bloqueado",
+        "label": "Tablero de tuberías",
+        "rect": { "x": 380, "y": 150, "w": 440, "h": 300 },
+        "showIf": ["!flag:tuberia_reparada"],
+        "actions": [{ "type": "say", "text": "El tablero de tuberías. Primero hay que arreglar la grieta." }]
+      },
+      {
+        "id": "tablero",
+        "label": "Tablero de tuberías",
+        "rect": { "x": 380, "y": 150, "w": 440, "h": 300 },
+        "showIf": ["flag:tuberia_reparada", "!flag:energia_restaurada"],
+        "actions": [{ "type": "puzzle", "id": "tuberias1" }]
+      },
+      {
+        "id": "tablero_listo",
+        "label": "Tablero de tuberías",
+        "rect": { "x": 380, "y": 150, "w": 440, "h": 300 },
+        "showIf": ["flag:energia_restaurada"],
+        "actions": [{ "type": "say", "text": "¡El gas llega a la celda! Todo funciona." }]
+      },
+      {
+        "id": "celda",
+        "label": "Celda de combustible",
+        "rect": { "x": 880, "y": 170, "w": 230, "h": 340 },
+        "actions": [{ "type": "say", "text": "Una celda de combustible. Aquí se produce la electricidad de la nave." }]
+      }
+    ]
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "abrir_locker",
+    "doneIf": ["flag:locker_abierto"],
+    "hints": [
+      "Fíjate en lo que hay en la cabina y en el entrepuente: ¡hay cosas para contar!",
+      "El casillero 2B usa tres dibujos: ventana, estación y cama. Cada dibujo es un número.",
+      "Son 6 ventanas, la estación 4 y 5 camas. El código es 6-4-5."
+    ]
+  },
+  {
+    "id": "conseguir_cable",
+    "doneIf": ["flag:cable_obtenido"],
+    "hints": [
+      "En el entrepuente hay un panel con tornillos de forma especial.",
+      "La llave hexagonal sirve para tornillos hexagonales.",
+      "Elige la llave en tu inventario y toca el panel de la pared del entrepuente."
+    ]
+  },
+  {
+    "id": "conseguir_fusible",
+    "doneIf": ["flag:fusible_obtenido"],
+    "hints": [
+      "Hay una caja de fusibles en la bahía de aviónica, pero está oscura.",
+      "Con la linterna en tu inventario podrás ver lo que hay dentro de la caja.",
+      "Entra a la bahía por la puerta amarilla del entrepuente y toca la caja de fusibles."
+    ]
+  },
+  {
+    "id": "instalar_fusible",
+    "doneIf": ["flag:fusible_instalado"],
+    "hints": [
+      "Algunas cosas del inventario se pueden unir entre sí.",
+      "Combina el cable con el fusible: elige uno y toca el otro.",
+      "Con el fusible puente, elígelo en el inventario y toca el panel de interruptores."
+    ]
+  },
+  {
+    "id": "interruptores",
+    "doneIf": ["flag:interruptores_listos"],
+    "hints": [
+      "Los interruptores deben quedar igual que el dibujo de la derecha.",
+      "Mira bien el dibujo: algunas casillas están encendidas y otras apagadas.",
+      "Toca solo las casillas que están encendidas (amarillas) en el dibujo y luego COMPROBAR."
+    ]
+  },
+  {
+    "id": "abrir_piso",
+    "doneIf": ["flag:piso_abierto"],
+    "hints": [
+      "En el piso del entrepuente hay un panel con cuatro tornillos.",
+      "La llave hexagonal también sirve para ese panel.",
+      "Elige la llave en el inventario y toca el panel del piso."
+    ]
+  },
+  {
+    "id": "reparar_tuberia",
+    "doneIf": ["flag:tuberia_reparada"],
+    "hints": [
+      "En las celdas de combustible hay una tubería con una grieta.",
+      "La cinta sirve para tapar grietas.",
+      "Elige la cinta en el inventario y toca la tubería agrietada."
+    ]
+  },
+  {
+    "id": "unir_tuberias",
+    "doneIf": ["flag:energia_restaurada"],
+    "hints": [
+      "Hay que unir el tanque con la celda de combustible usando las tuberías.",
+      "Toca una pieza para girarla. El camino debe ir de izquierda a derecha.",
+      "Las piezas rectas van en línea y las curvas cambian de dirección. Las que se iluminan ya están conectadas."
+    ]
+  }
+]

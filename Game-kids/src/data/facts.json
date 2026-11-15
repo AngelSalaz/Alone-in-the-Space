@@ -1,0 +1,51 @@
+[
+  {
+    "id": "intro",
+    "kind": "story",
+    "title": "Misión: ¡volver a casa!",
+    "text": "León es un astronauta que regresa de Júpiter. Cuando estaba a 414 millones de kilómetros de la Tierra, su nave se quedó sin energía y sin comunicación. ¡Ayúdalo a repararla resolviendo acertijos! Por el camino aprenderás cómo funciona un transbordador espacial.",
+    "button": "¡A jugar!"
+  },
+  {
+    "id": "ventanas",
+    "kind": "fact",
+    "title": "Ventanas al espacio",
+    "text": "La cabina de vuelo del transbordador espacial tenía seis ventanas. Gracias a ellas, la tripulación podía mirar hacia afuera cuando estaba en órbita.",
+    "button": "¡Entendido!"
+  },
+  {
+    "id": "distancia",
+    "kind": "fact",
+    "title": "¡Qué lejos estamos!",
+    "text": "Los científicos miden las distancias del espacio en UA. 1 UA es la distancia de la Tierra al Sol. ¡León está a 2.77 UA de casa! Una señal de radio tardaría unos 23 minutos en llegar a la Tierra.",
+    "button": "¡Entendido!"
+  },
+  {
+    "id": "estaciones",
+    "kind": "fact",
+    "title": "Cada uno en su puesto",
+    "text": "En la cabina de vuelo, el comandante y el piloto se sentaban lado a lado, con los controles de la nave frente a ellos. Detrás se sentaban los especialistas de misión.",
+    "button": "¡Entendido!"
+  },
+  {
+    "id": "camas",
+    "kind": "fact",
+    "title": "Dormir en el espacio",
+    "text": "El entrepuente era el lugar donde la tripulación dormía, trabajaba y vivía. En el espacio nada se cae hacia abajo, por eso se dormía sujeto en un saco de dormir.",
+    "button": "¡Entendido!"
+  },
+  {
+    "id": "circuitos",
+    "kind": "fact",
+    "title": "Circuitos y fusibles",
+    "text": "La electricidad solo viaja por un camino cerrado llamado circuito. Los interruptores abren o cierran ese camino. El fusible es una pieza que protege el circuito si pasa demasiada corriente.",
+    "button": "¡Entendido!"
+  },
+  {
+    "id": "celdas",
+    "kind": "fact",
+    "title": "Celdas de combustible",
+    "text": "El transbordador tenía 3 celdas de combustible. Mezclan hidrógeno y oxígeno para producir electricidad. ¡Y además producen agua, que la tripulación usaba para beber y asearse!",
+    "button": "¡Entendido!"
+  }
+]

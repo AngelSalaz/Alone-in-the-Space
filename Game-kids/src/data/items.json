@@ -1,0 +1,13 @@
+{
+  "items": [
+    { "id": "linterna", "name": "Linterna", "description": "Alumbra los lugares oscuros.", "color": "#f5c542" },
+    { "id": "llave_hex", "name": "Llave hexagonal", "description": "Una llave en L para tornillos hexagonales.", "color": "#8a96b8" },
+    { "id": "cinta", "name": "Cinta", "description": "Cinta plateada para tapar grietas.", "color": "#b7bcc4" },
+    { "id": "cable", "name": "Cable corto", "description": "Un cable de cobre con las puntas peladas.", "color": "#c97b3a" },
+    { "id": "fusible", "name": "Fusible", "description": "Un tubito de vidrio que protege un circuito.", "color": "#9fd1f0" },
+    { "id": "fusible_puente", "name": "Fusible puente", "description": "Un fusible con un cable que cierra el circuito.", "color": "#ee7b6a" }
+  ],
+  "recipes": [
+    { "a": "cable", "b": "fusible", "result": "fusible_puente", "text": "Enrollas el cable al fusible. ¡Ahora cierra el circuito!" }
+  ]
+}

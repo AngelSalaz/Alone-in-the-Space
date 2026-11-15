@@ -1,0 +1,48 @@
+{
+  "locker2B": {
+    "type": "symbolLock",
+    "title": "CASILLERO 2B",
+    "symbols": ["ventana", "estación", "litera"],
+    "code": [6, 4, 5],
+    "onSolve": [
+      { "type": "say", "text": "¡Clic! El casillero se abre." },
+      { "type": "give", "item": "linterna" },
+      { "type": "give", "item": "llave_hex" },
+      { "type": "give", "item": "cinta" },
+      { "type": "setFlag", "flag": "locker_abierto" },
+      { "type": "say", "text": "Seis ventanas, estación cuatro, cinco camas. ¡Contar sirve!" }
+    ],
+    "onFail": [{ "type": "say", "text": "No abre. Cada dibujo es un número que ya encontraste." }]
+  },
+  "interruptores1": {
+    "type": "pattern",
+    "title": "PANEL DE INTERRUPTORES",
+    "rounds": [
+      { "target": [[1, 0, 1], [0, 1, 0], [1, 0, 1]] },
+      { "target": [[0, 1, 0], [1, 1, 1], [0, 1, 0]] }
+    ],
+    "onSolve": [
+      { "type": "setFlag", "flag": "interruptores_listos" },
+      { "type": "say", "text": "¡Lo lograste! Los interruptores quedaron igual que el dibujo." },
+      { "type": "fact", "id": "circuitos" }
+    ]
+  },
+  "tuberias1": {
+    "type": "pipes",
+    "title": "TABLERO DE TUBERÍAS",
+    "sourceRow": 1,
+    "targetRow": 1,
+    "tiles": [
+      [6, 12, 5, 3],
+      [5, 3, 7, 9],
+      [5, 7, 6, 5]
+    ],
+    "onSolve": [
+      { "type": "setFlag", "flag": "energia_restaurada" },
+      { "type": "say", "text": "¡El hidrógeno llega a la celda! Las luces de la nave se encienden." },
+      { "type": "fact", "id": "celdas" },
+      { "type": "setFlag", "flag": "acto1_completo" },
+      { "type": "say", "text": "¡Acto 1 completo! La nave ya tiene energía. Pronto repararemos el aire." }
+    ]
+  }
+}
